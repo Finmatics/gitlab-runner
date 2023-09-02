@@ -1,4 +1,4 @@
-FROM docker:latest
+FROM docker:24.0.4
 
 RUN apk add --no-cache git git-lfs curl bash
 
