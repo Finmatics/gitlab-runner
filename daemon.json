@@ -1,0 +1,4 @@
+{
+    "ipv6": true,
+    "insecure-registries" : [ "10.0.1.2:5000" ]
+}
