@@ -7,9 +7,9 @@ RUN curl --location --output /usr/local/bin/release-cli "https://gitlab.com/api/
     && chmod +x /usr/local/bin/release-cli
 
 # install pre-commit
-RUN python3 -m ensurepip \
-    && rm -r /usr/lib/python*/ensurepip \
-    && pip3 install --upgrade pre-commit \
-    && rm -r /root/.cache
+RUN curl https://github.com/pre-commit/pre-commit/releases/download/v3.5.0/pre-commit-3.5.0.pyz -L -o /usr/local/bin/pre-commit.pyz \
+    && echo '#!/bin/sh' > /usr/local/bin/pre-commit \
+    && echo 'python3 /usr/local/bin/pre-commit.pyz "$@"' >> /usr/local/bin/pre-commit \
+    && chmod +x /usr/local/bin/pre-commit
 
 COPY daemon.json /etc/docker/daemon.json
