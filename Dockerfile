@@ -1,4 +1,4 @@
-FROM docker:27.1
+FROM docker:latest
 
 RUN apk add --no-cache git git-lfs curl bash python3 jq
 
