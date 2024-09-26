@@ -6,6 +6,9 @@ RUN apk add --no-cache git git-lfs curl bash python3 jq
 RUN curl --location --output /usr/local/bin/release-cli "https://gitlab.com/api/v4/projects/gitlab-org%2Frelease-cli/packages/generic/release-cli/latest/release-cli-linux-amd64" \
     && chmod +x /usr/local/bin/release-cli
 
+# install sentry-cli
+RUN curl -sL https://sentry.io/get-cli/ | sh
+
 # install pre-commit
 RUN curl https://github.com/pre-commit/pre-commit/releases/download/v3.8.0/pre-commit-3.8.0.pyz -L -o /usr/local/bin/pre-commit.pyz \
     && echo '#!/bin/sh' > /usr/local/bin/pre-commit \
